@@ -1,16 +1,25 @@
-// Circle.h
-#ifndef CIRCLE_H
-#define CIRCLE_H
+// Circle.cpp
+#include "Circle.h"
+#include <iostream>
 
-class Circle {
-private:
-    double radius;
+Circle::Circle(double r) {
+    setRadius(r);
+}
 
-public:
-    Circle(double r = 1.0); // Constructor with default value
-    void setRadius(double r);
-    double getRadius() const;
-    double getArea() const;
-};
+void Circle::setRadius(double r) {
+    if (r >= 0) {
+        radius = r;
+    } else {
+        std::cerr << "Radius cannot be negative." << std::endl;
+        radius = 0;
+    }
+}
 
-#endif
+double Circle::getRadius() const {
+    return radius;
+}
+
+double Circle::getArea() const {
+    return 3.14159 * radius * radius;
+}
+
